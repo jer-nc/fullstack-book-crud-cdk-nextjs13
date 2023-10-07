@@ -13,7 +13,7 @@ interface AppLayoutProps {
 const AppLayout = ({ children }: AppLayoutProps) => {
     const { setUserAndSession } = useAuthStore()
 
-    const [isSuccess, setIsSuccess] = useState<boolean>(false);
+
     const { push } = useRouter();
 
     useLayoutEffect(() => {
@@ -28,10 +28,6 @@ const AppLayout = ({ children }: AppLayoutProps) => {
             } else{
                 setUserAndSession(currentUser, session)
             }
-
-
-            // if the error did not happen, if everything is alright
-            setIsSuccess(true);
         })();
     }, []);
 
