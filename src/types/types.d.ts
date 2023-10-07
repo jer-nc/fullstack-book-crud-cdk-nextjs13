@@ -15,3 +15,15 @@ export type ConfirmRegistrationValues = {
     code: string
     password: string
 }
+
+// BOOKS
+
+export type BookProps = {
+    book: {
+        id: string
+        title: string
+        author: string
+        description: string
+        year: number
+    }
+}

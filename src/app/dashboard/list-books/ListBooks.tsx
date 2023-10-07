@@ -9,10 +9,9 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { ScrollArea } from '@/components/ui/scroll-area'
-import { Button } from '@/components/ui/button'
 import PopoverCard from './PopoverCard'
-import { PlusCircledIcon } from '@radix-ui/react-icons'
 import AddBookButton from './AddBookButton'
+import { BookProps } from '@/types/types'
 
 
 const ListBooks = () => {
@@ -33,10 +32,7 @@ const ListBooks = () => {
 
                     <CardTitle>{book.title}</CardTitle>
                     <div>
-                      {/* <Button size='icon' variant='ghost'>
-                        test
-                      </Button> */}
-                      <PopoverCard />
+                      <PopoverCard book={book}/>
                     </div>
                   </div>
                   <CardDescription>{book.author}</CardDescription>
