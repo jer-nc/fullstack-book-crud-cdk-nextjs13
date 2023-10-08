@@ -1,10 +1,10 @@
 import Image from "next/image";
-import image from '../../public/hero-image.png';
+import image from '../../public/assets/cdk-crud-books-nextj13.webp';
 import NavbarHome from "@/components/custom/NavbarHome";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col justify-center items-center p-12 max-w-[1200px] mx-auto">
+    <main className="flex min-h-screen flex-col justify-center items-center px-12 py-28 max-w-[1200px] mx-auto">
       <NavbarHome />
       <h1 className="text-3xl font-semibold text-center">
         Next.js 13 + Cognito + API Gateway + Lambda + DynamoDB - Books App Demo
@@ -21,7 +21,7 @@ export default function Home() {
           You can finde the backend code <a href=" " target="_blank" className="text-blue-500">here</a>.
         </p>
         <div className="py-12 w-full justify-center flex">
-          <Image priority width={300} height={500} src={image} style={{ width: 'auto' }} alt="next-js-cognito" />
+          <Image priority width={900} height={800} src={image} style={{ width: 'auto' }} alt="next-js-cognito" />
         </div>
         <h2 className="mt-4 text-xl font-semibold">
           The application allows for the following
