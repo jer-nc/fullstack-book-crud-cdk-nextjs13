@@ -1,26 +1,47 @@
 import Image from "next/image";
-import image from '../../public/hero-image.png'
+import image from '../../public/hero-image.png';
 import NavbarHome from "@/components/custom/NavbarHome";
+
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col justify-center items-center p-12">
+    <main className="flex min-h-screen flex-col justify-center items-center p-12 max-w-[1200px] mx-auto">
       <NavbarHome />
-      <h1 className="text-2xl font-semibold">Next.js 13 Cognito Authentication Template Demo</h1>
-      <p className="text-muted-foreground mt-4">
-        This is a demonstration of the Next.js 13 Cognito Authentication Template. You can access the source code{" "}
-        <a
-          href=""
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-blue-500"
-        >here</a>
-      </p>
-      <div className="py-12">
-        <Image priority width={300} height={500} src={image} style={{ width: 'auto' }} alt="next-js-cognito" />
+      <h1 className="text-3xl font-semibold text-center">
+        Next.js 13 + Cognito + API Gateway + Lambda + DynamoDB - Books App Demo
+      </h1>
+      <div className="py-4">
+        <p className="text-muted-foreground mt-4">
+          This frontend application serves as a simple demonstration of how to interact with a backend built using AWS CDK.
+        </p>
+        <p className="text-muted-foreground mt-4">
+          It performs basic CRUD operations, with API Gateway methods protected by Cognito authorizers.
+          Lambda functions process requests and handle data modifications in DynamoDB.
+        </p>
+        <p className="text-muted-foreground mt-4">
+          You can finde the backend code <a href=" " target="_blank" className="text-blue-500">here</a>.
+        </p>
+        <div className="py-12 w-full justify-center flex">
+          <Image priority width={300} height={500} src={image} style={{ width: 'auto' }} alt="next-js-cognito" />
+        </div>
+        <h2 className="mt-4 text-xl font-semibold">
+          The application allows for the following
+        </h2>
+        <div className="py-4">
+          <ul className="text-muted-foreground">
+            <li>- Authentication with Cognito</li>
+            <li>- Book creation</li>
+            <li>- Book modification</li>
+            <li>- Book deletion</li>
+            <li>- Listing all books</li>
+            <li>- Retrieving a book by its ID.</li>
+          </ul>
+        </div>
+        <div className="mt-8 p-4 bg-gray-200 rounded-md">
+          <p className="text-center">
+              Please note that this application is experimental and not production-ready.
+          </p>
+        </div>
       </div>
-      <p className="mt-4">
-        Keep in mind that this is just a demo and shouldn&apos;t be used in a real production setting.
-      </p>
     </main>
   )
 }

@@ -1,6 +1,6 @@
 import { BookProps } from "@/types/types";
 
-export async function createBook({ title, author }: { title: string, author: string }): Promise<BookProps | null> {
+export async function createBook({ title, author, description, year ,jwt }: { title: string, author: string, description: string, year: string , jwt: string}): Promise<BookProps | null> {
     const baseURL = process.env.APIGatewayURL;
 
     console.log(`APIGatewayURL: ${baseURL}`);
@@ -8,6 +8,8 @@ export async function createBook({ title, author }: { title: string, author: str
     const book = {
         title,
         author,
+        description,
+        year,
     };
 
     try {
@@ -18,6 +20,7 @@ export async function createBook({ title, author }: { title: string, author: str
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
+                'Authorization': `Bearer ${jwt}`,
             },
             body: JSON.stringify(book),
         });

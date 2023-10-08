@@ -12,6 +12,8 @@ import { Button } from "@/components/ui/button"
 import { createBook } from "./createBook"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
+import { getUser } from "@/lib/getUser"
+import { CognitoUserSession } from "amazon-cognito-identity-js"
 
 const NewBookForm = () => {
   const [loading, setLoading] = useState(false)
@@ -21,27 +23,33 @@ const NewBookForm = () => {
     defaultValues: {
       title: "",
       author: "",
-      // description: "",
-      // year: 0,
+      description: "",
+      year: ""
     },
   })
 
 
   async function onSubmit() {
-    const { title, author } = form.getValues()
+    const { title, author, description, year } = form.getValues()
 
     try {
       setLoading(true)
-      // const book = { title, author }
-      const res = await createBook({ title, author }) as any
+      // const book = { title, author }ç
+      const { session } = await getUser() as { session: CognitoUserSession }
 
-      console.log(res)
-      if (res?.ok) {
-        console.log('success')
-        push('/dashboard')
-      } else {
-        console.log('error')
+      if (session) {
+        const jwt = session.getIdToken().getJwtToken()
+        const res = await createBook({ title, author, description, year, jwt }) as any
+
+        console.log(res)
+        if (res?.ok) {
+          console.log('success')
+          push('/dashboard')
+        } else {
+          console.log('error')
+        }
       }
+
     } catch (error) {
       console.log(error)
     } finally {
@@ -62,7 +70,7 @@ const NewBookForm = () => {
                 <FormControl>
                   <>
                     <div className="relative">
-                      <Input className='py-6 bg-gray-100 pl-10' placeholder="Book Title" {...field} />
+                      <Input disabled={loading} className='py-6 bg-gray-100 pl-10' placeholder="Book Title" {...field} />
                       <div className="absolute left-3 top-1/2 transform -translate-y-1/2">
                         <TextIcon className='text-muted-foreground' />
                       </div>
@@ -82,7 +90,7 @@ const NewBookForm = () => {
                 <FormControl>
                   <>
                     <div className="relative">
-                      <Input className='py-6 bg-gray-100 pl-10' type='text' placeholder="Author" {...field} />
+                      <Input disabled={loading} className='py-6 bg-gray-100 pl-10' type='text' placeholder="Author" {...field} />
                       <div className="absolute left-3 top-1/2 transform -translate-y-1/2">
                         <PersonIcon className='text-muted-foreground' />
                       </div>
@@ -94,7 +102,7 @@ const NewBookForm = () => {
               </FormItem>
             )}
           />
-          {/* <FormField
+          <FormField
             control={form.control}
             name="description"
             render={({ field }) => (
@@ -102,7 +110,7 @@ const NewBookForm = () => {
                 <FormControl>
                   <>
                     <div className="relative">
-                      <Textarea className='pt-5 bg-gray-100 pl-10 min-h-[200px]' placeholder="Description" {...field} />
+                      <Textarea disabled={loading} className='pt-5 bg-gray-100 pl-10 min-h-[200px]' placeholder="Description" {...field} />
                       <div className="absolute left-3 top-8 transform -translate-y-1/2">
                         <FileTextIcon className='text-muted-foreground' />
                       </div>
@@ -122,7 +130,7 @@ const NewBookForm = () => {
                 <FormControl>
                   <>
                     <div className="relative">
-                      <Input className='py-6 bg-gray-100 pl-10' type='number' placeholder="Year" {...field} />
+                      <Input disabled={loading} className='py-6 bg-gray-100 pl-10' type='number' placeholder="Year" {...field} />
                       <div className="absolute left-3 top-1/2 transform -translate-y-1/2">
                         <LapTimerIcon className='text-muted-foreground' />
                       </div>
@@ -133,7 +141,7 @@ const NewBookForm = () => {
                 <FormMessage />
               </FormItem>
             )}
-          /> */}
+          />
 
           <div className="w-full flex justify-end pt-4">
             {

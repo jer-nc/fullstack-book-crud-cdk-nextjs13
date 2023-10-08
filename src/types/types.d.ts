@@ -24,6 +24,15 @@ export type BookProps = {
         title: string
         author: string
         description: string
-        year: number
+        year: string
     }
+}
+
+export type BookResponse = {
+    id: string
+    title: string
+    author: string
+    description: string
+    year: string
+    jwt?: string
 }

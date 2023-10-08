@@ -10,8 +10,8 @@ export const newBookSchema = z.object({
         {
             message: "Author must be at least 1 character long."
         }),
-    // description: z.string().min(1, {
-    //     message: "Description must be at least 1 character long."
-    // }),
-    // year: z.number().min(1),
+    description: z.string().min(1, {
+        message: "Description must be at least 1 character long."
+    }),
+    year: z.string(),
 });
