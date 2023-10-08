@@ -18,7 +18,7 @@ export default function Home() {
           Lambda functions process requests and handle data modifications in DynamoDB.
         </p>
         <p className="text-muted-foreground mt-4">
-          You can finde the backend code <a href=" " target="_blank" className="text-blue-500">here</a>.
+          You can finde the backend code <a href="https://github.com/jer-nc/books-api-crud-cdk" target="_blank" className="text-blue-500">here</a>.
         </p>
         <div className="py-12 w-full justify-center flex">
           <Image priority width={900} height={800} src={image} style={{ width: 'auto' }} alt="next-js-cognito" />
