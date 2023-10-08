@@ -12,7 +12,11 @@ The frontend is built with `Next.js 13`, `Tailwind CSS`, `Shadcn UI`, and `Types
 
 ## Demo 📺
 
-Demo Website: [Next.js 13 + Cognito + API Gateway + Lambda + DynamoDB - Books App Demo](https://main.d2zz6ioqtf0kay.amplifyapp.com/)
+Demo Website: [Next.js 13 + Cognito + API Gateway + Lambda + DynamoDB - Books App Demo](https://main.d1v7b18a5j9npz.amplifyapp.com/)
+
+## Backend 🚀
+
+The backend is built using AWS CDK and can be found in this repository: [books-api-crud-cdk](https://github.com/jer-nc/books-api-crud-cdk)
 
 ## Features ✨
 
