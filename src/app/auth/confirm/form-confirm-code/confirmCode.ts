@@ -20,7 +20,7 @@ export async function confirmRegistration(values: ConfirmRegistrationValues) {
                     console.error('Error confirming registration:', error);
                     reject(error); // Rechaza la promesa en caso de error
                 } else {
-                    console.log('Registration confirmed successfully:', result);
+                  // console.log('Registration confirmed successfully:', result);
 
                     const authDetails = new AuthenticationDetails({
                         Username: email,
@@ -31,16 +31,16 @@ export async function confirmRegistration(values: ConfirmRegistrationValues) {
                     // Authenticate the user after successful confirmation
                     cognitoUser.authenticateUser(authDetails, {
                         onSuccess: (data) => {
-                            console.log('Authentication successful:', data);
+                          // console.log('Authentication successful:', data);
                             // Remove temporary password from Cookies after successful authentication : TODO!
                             resolve(data); // Resuelve la promesa con los datos exitosos
                         },
                         onFailure: (err) => {
-                            console.log('Authentication failed:', err);
+                          // console.log('Authentication failed:', err);
                             reject(err); // Rechaza la promesa en caso de fallo en la autenticación
                         },
                         newPasswordRequired: (data) => {
-                            console.log('New password required: ', data);
+                          // console.log('New password required: ', data);
                             resolve(data); // Resuelve la promesa con los datos exitosos
                         }
                     });

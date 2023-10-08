@@ -3,7 +3,7 @@ import { BookProps } from "@/types/types";
 export async function createBook({ title, author, description, year ,jwt }: { title: string, author: string, description: string, year: string , jwt: string}): Promise<BookProps | null> {
     const baseURL = process.env.APIGatewayURL;
 
-    console.log(`APIGatewayURL: ${baseURL}`);
+  // console.log(`APIGatewayURL: ${baseURL}`);
 
     const book = {
         title,

@@ -51,17 +51,17 @@ const EditBookForm = () => {
                 const newBook: BookResponse = { title, author, description, year, id: id as string, jwt }
                 const res = await editBook(newBook) as any
     
-                console.log(res)
+              // console.log(res)
                 if (res?.ok) {
-                    console.log('success')
+                  // console.log('success')
                     push('/dashboard')
                 } else {
-                    console.log('error')
+                  // console.log('error')
                 }
             }
 
         } catch (error) {
-            console.log(error)
+          // console.log(error)
         } finally {
             setLoading(false)
         }
@@ -79,7 +79,7 @@ const EditBookForm = () => {
                     const res = await getBookById({ id, jwt });
 
                     if (res) {
-                        console.log(res)
+                      // console.log(res)
                         // set values inputs with res data react hook form 
                         form.setValue('title', res.title)
                         form.setValue('author', res.author)
@@ -89,13 +89,13 @@ const EditBookForm = () => {
                         setDataLoaded(true)
 
                     } else {
-                        console.log('No book found')
+                      // console.log('No book found')
                     }
                 }
             }
             getBook()
         } catch (error) {
-            console.log(error)
+          // console.log(error)
             throw new Error(String(error))
         }
     }, [])

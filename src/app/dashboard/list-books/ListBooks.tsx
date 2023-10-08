@@ -42,7 +42,7 @@ const ListBooks = () => {
 
       getBooks()
     } catch (error) {
-      console.log(error)
+    // console.log(error)
     }
   }, [])
 

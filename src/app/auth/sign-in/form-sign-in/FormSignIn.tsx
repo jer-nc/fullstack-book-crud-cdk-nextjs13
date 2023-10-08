@@ -34,13 +34,13 @@ const FormSignIn = () => {
         try {
             const values = form.getValues(); 
             const data = await signInUser(values) as SignInResponse;
-            console.log('data: ', data)
+          // console.log('data: ', data)
             
             if (data && data.idToken.jwtToken) {
                 router.push('/dashboard');
             } 
         } catch (error) {
-            console.log('error', error)
+          // console.log('error', error)
             setLoading(false)
             setValidationErrors({ ...validationErrors, email: (error as Error).message })
         } finally {

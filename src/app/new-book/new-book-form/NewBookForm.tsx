@@ -41,17 +41,17 @@ const NewBookForm = () => {
         const jwt = session.getIdToken().getJwtToken()
         const res = await createBook({ title, author, description, year, jwt }) as any
 
-        console.log(res)
+      // console.log(res)
         if (res?.ok) {
-          console.log('success')
+        // console.log('success')
           push('/dashboard')
         } else {
-          console.log('error')
+        // console.log('error')
         }
       }
 
     } catch (error) {
-      console.log(error)
+    // console.log(error)
     } finally {
       setLoading(false)
     }

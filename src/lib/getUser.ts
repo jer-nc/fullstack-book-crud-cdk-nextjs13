@@ -19,7 +19,7 @@ export async function getUser() {
         resolve({ currentUser: null, error: null });
       }
     } catch (error) {
-      console.log(error);
+    // console.log(error);
       reject(error);
     }
   });

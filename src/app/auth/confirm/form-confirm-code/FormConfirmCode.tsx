@@ -20,7 +20,7 @@ const FormConfirmCode = () => {
     const [validationErrors, setValidationErrors] = useState('');
     const router = useRouter();
 
-    console.log('email', email)
+  // console.log('email', email)
 
     const handleCodeChange = (index: number, value: string) => {
         const newCodes = [...codes];
@@ -57,11 +57,11 @@ const FormConfirmCode = () => {
             const data = await resendCode(email);
             // TODO - Handle error if data is null OR if data has an error message
             if (data) {
-                console.log(data);
+              // console.log(data);
                 setCodeResent(true);
             }
         } catch (error) {
-            console.log('error', error);
+          // console.log('error', error);
         }
     };
 
@@ -84,7 +84,7 @@ const FormConfirmCode = () => {
             // If the user is confirmed, we can log them in 
             if (data && data.idToken.jwtToken) {
                 Cookies.remove('tmp_p');
-                console.log('data from confirm form', data);
+              // console.log('data from confirm form', data);
                 router.push(`/dashboard`);
                 setLoading(false);
             }

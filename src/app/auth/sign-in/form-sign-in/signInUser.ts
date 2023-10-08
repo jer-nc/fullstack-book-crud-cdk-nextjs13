@@ -20,18 +20,18 @@ export async function signInUser(values: z.infer<typeof registerSignInSchema>) {
 
             user.authenticateUser(authDetails, {
                 onSuccess: (data) => {
-                    console.log('data', data);
+                  // console.log('data', data);
                     resolve(data); // Resolve the promise with the data
                 },
                 onFailure: (err) => {
                     reject(err); 
                 },
                 newPasswordRequired: (data) => {
-                    console.log('new password required: ', data);
+                  // console.log('new password required: ', data);
                 }
             });
         } catch (error) {
-            console.log(error);
+          // console.log(error);
             reject(error); 
         }
     });
