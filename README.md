@@ -1,19 +1,27 @@
-# Next.js 13 + Cognito Custom Authentication Flow 
+# Next.js 13 + Cognito + API Gateway + Lambda + DynamoDB - Books App Demo
 
-This is a sample project to demonstrate how to implement a custom authentication flow with `cognito-identity-js`, `Next.js 13`, and `App Router`.
+This frontend application serves as a simple demonstration of how to interact with a backend built using AWS CDK.
+
+It performs basic CRUD operations, with API Gateway methods protected by Cognito authorizers. Lambda functions process requests and handle data modifications in DynamoDB.
 
 The frontend is built with `Next.js 13`, `Tailwind CSS`, `Shadcn UI`, and `Typescript`.
 
-> 🚨 **Important**: This template is not production-ready. It is intended to be used as a starting point for personal future projects.
+> 🚨 **Important**: Please note that this application is experimental and not production-ready.
 
-![home-page](./public/assets/landing.png)
+![home-page](./public/assets/cdk-crud-books-nextj13.webp)
 
 ## Demo 📺
 
-Demo Website: [Next.js 13 + Cognito custom Authentication Flow](https://main.d2zz6ioqtf0kay.amplifyapp.com/)
+Demo Website: [Next.js 13 + Cognito + API Gateway + Lambda + DynamoDB - Books App Demo](https://main.d2zz6ioqtf0kay.amplifyapp.com/)
 
 ## Features ✨
 
+- [x] Authentication with Cognito 🔐
+- [x] Create book 📚
+- [x] Modify book ✏️
+- [x] Delete book 🗑️
+- [x] List all books 📜
+- [x] Get book by ID 🆔
 - [x] Sign up 📝
 - [x] Sign in 🔑
 - [x] Sign out 🚪
@@ -28,9 +36,23 @@ Demo Website: [Next.js 13 + Cognito custom Authentication Flow](https://main.d2z
 
 ## Screenshots 📷
 
-| Sign Up                                  | Sign In                                  | Verify Code                               | Landing                                   | Dashboard                                   |
-| ---------------------------------------- | ---------------------------------------- | ----------------------------------------- | ----------------------------------------- | ------------------------------------------- |
-| ![signup-page](./public/assets/signup.png) | ![signin-page](./public/assets/signin.png) | ![confirm-page](./public/assets/confirm.png) | ![landing-page](./public/assets/landing.png) | ![dashboard-page](./public/assets/dashboard.png) |
+| Sign Up                                    | Sign In                                    | Verify Code                                  | Landing                                      |
+| ------------------------------------------ | ------------------------------------------ | -------------------------------------------- | -------------------------------------------- |
+| ![signup-page](./public/assets/signup.png) | ![signin-page](./public/assets/signin.png) | ![confirm-page](./public/assets/confirm.png) | ![landing-page](./public/assets/landing2.png) |
+
+| List Books                                 | Create New Book                            | Edit Book                                    |
+| ------------------------------------------ | ------------------------------------------ | -------------------------------------------- |
+| ![list-books](./public/assets/list-books.png) | ![new-book](./public/assets/new-book.png) | ![edit-book](./public/assets/edit-book.png) |
+
+## To Improve 📈
+
+- [ ] Fetch data from API Gateway with `React Query` or something similar
+- [ ] Review types and interfaces in the frontend code (some of them are not used)
+- [ ] Protected Routes logic 
+- [ ] Improve UI/UX
+- [ ] Refactor code (some of it is not clean)
+- [ ] Add more features
+
 
 ## Getting Started 🚀
 
