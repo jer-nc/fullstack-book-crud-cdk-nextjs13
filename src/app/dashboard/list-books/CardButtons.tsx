@@ -28,14 +28,14 @@ const CardButtons = ({ book }: BookProps) => {
 
       const res = await deleteBook({ id, jwt })
       if (res) {
-        console.log('success')
+      // console.log('success')
         const newBooks = books.filter((book) => book.id !== id)
         setBooks(newBooks)
       } else {
-        console.log('error')
+      // console.log('error')
       }
     } catch (error) {
-      console.log(error)
+    // console.log(error)
     }
   }
 

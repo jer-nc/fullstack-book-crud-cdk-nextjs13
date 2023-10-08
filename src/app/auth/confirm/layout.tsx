@@ -19,7 +19,7 @@ export default function ConfirmLayout({
         (async () => {
             const { currentUser, error, session } = await getUser() as { currentUser: CognitoUser | null, error: Error | null, session: CognitoUserSession | null };
 
-            console.log({ currentUser, error, session })
+          // console.log({ currentUser, error, session })
 
             if (currentUser) {
                 push("/dashboard");

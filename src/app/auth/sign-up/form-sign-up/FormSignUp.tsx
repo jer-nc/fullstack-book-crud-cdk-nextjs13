@@ -40,16 +40,16 @@ const FormSignUp = () => {
         try {
             const values = form.getValues();
             const { password, email } = values;
-            console.log('values: ', values)
+          // console.log('values: ', values)
             const data = await signUpUser(values) as SignUpResponse;
-            console.log('data: ', data)
+          // console.log('data: ', data)
             if (data && data.userSub) {
                 Cookies.set('tmp_p', password, { expires: 1 });
-                console.log(data);
+              // console.log(data);
                 router.push(`/auth/confirm?email=${encodeURIComponent(email)}`);
             }
         } catch (error) {
-            console.log('error', error)
+          // console.log('error', error)
             setLoading(false)
             setValidationErrors({ ...validationErrors, email: (error as Error).message })
 

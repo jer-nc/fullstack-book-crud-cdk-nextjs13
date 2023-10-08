@@ -15,7 +15,7 @@ export async function resendCode(email: string){
                 if (error) {
                     console.error('Error resending code:', error);
                 } else {
-                    console.log('Code resent successfully:', result);
+                  // console.log('Code resent successfully:', result);
                     resolve(result);
                 }
             });
